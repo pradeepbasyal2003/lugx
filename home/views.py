@@ -16,7 +16,7 @@ class HomeView(Base):
         mostplayed_products = Product.objects.filter(labels = "most played").all()
         self.views["most_played"] = random.sample(list(mostplayed_products),6)
         featured = Product.objects.filter(labels = "featured").all()
-        self.views['featured'] =random.sample(list(featured) , 1)
+        self.views['featured'] = random.sample(list(featured), 1)
 
 
         return render(request , 'index.html',self.views)
