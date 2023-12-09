@@ -29,10 +29,22 @@ class ProductDetail(Base):
 
 
 class OurShop(Base):
-
-
     def get(self,request):
+        # cat_id = Category.objects.get(slug = slug).id
+        # cat = Category.objects.get(id = cat_id)
+        # self.views["product_view"] = Product.objects.filter(category = cat)
         return render(request , 'shop.html')
+
+class CategoryView(Base):
+
+
+    def get(self,request,slug):
+        cat_id = Category.objects.get(slug = slug).id
+        cat = Category.objects.get(id = cat_id)
+        self.views["current_cat"] = cat
+        self.views["product_view"] = Product.objects.filter(category = cat)
+        self.views["cat"] = Category.objects.all()
+        return render(request , 'category.html' , self.views)
 
 
 class Contact(Base):
