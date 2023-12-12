@@ -29,6 +29,7 @@ class Product(models.Model):
     tags = models.CharField(max_length = 200)
     LABELS = (('', 'default'), ('trending', 'trending'), ('most played', 'most played') , ('featured' , 'featured'))
     labels = models.CharField(choices=LABELS, max_length=50, blank=True)
+
     def __str__(self):
         return self.name
 

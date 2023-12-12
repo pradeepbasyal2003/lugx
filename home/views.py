@@ -24,16 +24,15 @@ class HomeView(Base):
 
 class ProductDetail(Base):
 
-    def get(self , request):
+    def get(self , request , slug):
+
         return render(request , 'product-details.html')
 
 
 class OurShop(Base):
     def get(self,request):
-        # cat_id = Category.objects.get(slug = slug).id
-        # cat = Category.objects.get(id = cat_id)
-        # self.views["product_view"] = Product.objects.filter(category = cat)
-        return render(request , 'shop.html')
+        self.views["products_view"] = Product.objects.all()
+        return render(request , 'shop.html' , self.views)
 
 class CategoryView(Base):
 
