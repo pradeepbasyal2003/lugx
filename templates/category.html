@@ -30,13 +30,13 @@
         <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
           <div class="item">
             <div class="thumb">
-              <a href="/product-detail"><img src="{{product.image.url}}" alt=""></a>
+              <a href="/product-details/{{product.slug}}"><img src="{{product.image.url}}" alt=""></a>
               <span class="price"><em>${{product.price}}</em>${{product.discounted_price}}</span>
             </div>
             <div class="down-content">
               <span class="category">{{product.tags}}</span>
               <h4>{{product.name}}</h4>
-              <a href="/product-detail"><i class="fa fa-shopping-bag"></i></a>
+              <a href="/product-details/{{product.slug}}"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>

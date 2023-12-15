@@ -24,12 +24,12 @@ class Product(models.Model):
     discounted_price = models.IntegerField(default = 0)
     image = models.ImageField(upload_to='media' , blank=True)
     description = models.TextField(blank = True)
-    game_id = models.CharField(max_length = 100)
+    game_id = models.CharField(max_length = 100 )
     category = models.ManyToManyField(Category)
     tags = models.CharField(max_length = 200)
     LABELS = (('', 'default'), ('trending', 'trending'), ('most played', 'most played') , ('featured' , 'featured'))
     labels = models.CharField(choices=LABELS, max_length=50, blank=True)
-
+    slug = models.CharField(max_length=50, blank=True)
     def __str__(self):
         return self.name
 

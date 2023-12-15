@@ -26,7 +26,11 @@ class ProductDetail(Base):
 
     def get(self , request , slug):
 
-        return render(request , 'product-details.html')
+        self.views["product"] = Product.objects.get(slug = slug)
+        product = Product.objects.get(slug = slug)
+        related_product = Product.objects.filter(labels = product.labels )
+        self.views["related"] = random.sample(list(related_product),5)
+        return render(request , 'product-details.html' , self.views)
 
 
 class OurShop(Base):
